@@ -13,6 +13,8 @@
 		487A7B0A1D5A8864000FFF63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B091D5A8864000FFF63 /* Assets.xcassets */; };
 		487A7B0D1D5A8864000FFF63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B0B1D5A8864000FFF63 /* LaunchScreen.storyboard */; };
 		487A7B181D5A8864000FFF63 /* dollarbillconverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B171D5A8864000FFF63 /* dollarbillconverterTests.swift */; };
+		D791DC09BA93DB2A4E1E584F /* Pods_dollarbillconverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B26EE0487E2AC172A0F1254 /* Pods_dollarbillconverter.framework */; };
+		F46F4B27D0D9503D4EAC3DC5 /* Pods_dollarbillconverterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8025E3EBBF8CA8FFBDDA5 /* Pods_dollarbillconverterTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B26EE0487E2AC172A0F1254 /* Pods_dollarbillconverter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dollarbillconverter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		487A7AFF1D5A8863000FFF63 /* dollarbillconverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dollarbillconverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		487A7B021D5A8863000FFF63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		487A7B041D5A8863000FFF63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,11 @@
 		487A7B131D5A8864000FFF63 /* dollarbillconverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dollarbillconverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		487A7B171D5A8864000FFF63 /* dollarbillconverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dollarbillconverterTests.swift; sourceTree = "<group>"; };
 		487A7B191D5A8864000FFF63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56737805C739D9821A0D1D3D /* Pods-dollarbillconverter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dollarbillconverter.release.xcconfig"; path = "Pods/Target Support Files/Pods-dollarbillconverter/Pods-dollarbillconverter.release.xcconfig"; sourceTree = "<group>"; };
+		B0774599DA6F57EE2E10A319 /* Pods-dollarbillconverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dollarbillconverter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dollarbillconverter/Pods-dollarbillconverter.debug.xcconfig"; sourceTree = "<group>"; };
+		CED8025E3EBBF8CA8FFBDDA5 /* Pods_dollarbillconverterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dollarbillconverterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF2C1A283B2FD3983201B542 /* Pods-dollarbillconverterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dollarbillconverterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dollarbillconverterTests/Pods-dollarbillconverterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D670F7F58720E84D7AD7B41C /* Pods-dollarbillconverterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dollarbillconverterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dollarbillconverterTests/Pods-dollarbillconverterTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D791DC09BA93DB2A4E1E584F /* Pods_dollarbillconverter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +59,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F46F4B27D0D9503D4EAC3DC5 /* Pods_dollarbillconverterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26100C9D2460EF9D59B73717 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0774599DA6F57EE2E10A319 /* Pods-dollarbillconverter.debug.xcconfig */,
+				56737805C739D9821A0D1D3D /* Pods-dollarbillconverter.release.xcconfig */,
+				CF2C1A283B2FD3983201B542 /* Pods-dollarbillconverterTests.debug.xcconfig */,
+				D670F7F58720E84D7AD7B41C /* Pods-dollarbillconverterTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		487A7AF61D5A8863000FFF63 = {
 			isa = PBXGroup;
 			children = (
 				487A7B011D5A8863000FFF63 /* dollarbillconverter */,
 				487A7B161D5A8864000FFF63 /* dollarbillconverterTests */,
 				487A7B001D5A8863000FFF63 /* Products */,
+				26100C9D2460EF9D59B73717 /* Pods */,
+				BAF9829551ACFAE66D8C18E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +119,15 @@
 			path = dollarbillconverterTests;
 			sourceTree = "<group>";
 		};
+		BAF9829551ACFAE66D8C18E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B26EE0487E2AC172A0F1254 /* Pods_dollarbillconverter.framework */,
+				CED8025E3EBBF8CA8FFBDDA5 /* Pods_dollarbillconverterTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 487A7B1C1D5A8864000FFF63 /* Build configuration list for PBXNativeTarget "dollarbillconverter" */;
 			buildPhases = (
+				D82EFAFDB59F414B4A1BA0A7 /* [CP] Check Pods Manifest.lock */,
 				487A7AFB1D5A8863000FFF63 /* Sources */,
 				487A7AFC1D5A8863000FFF63 /* Frameworks */,
 				487A7AFD1D5A8863000FFF63 /* Resources */,
+				8ACB83049D726780B78F775C /* [CP] Embed Pods Frameworks */,
+				391B162781B05DC468D222DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 487A7B1F1D5A8864000FFF63 /* Build configuration list for PBXNativeTarget "dollarbillconverterTests" */;
 			buildPhases = (
+				8AC53075FA9076CCBFECA78C /* [CP] Check Pods Manifest.lock */,
 				487A7B0F1D5A8864000FFF63 /* Sources */,
 				487A7B101D5A8864000FFF63 /* Frameworks */,
 				487A7B111D5A8864000FFF63 /* Resources */,
+				D73B1540E509C50658509CEA /* [CP] Embed Pods Frameworks */,
+				5C2726EC9B6BB2B204235C78 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,6 +184,7 @@
 				TargetAttributes = {
 					487A7AFE1D5A8863000FFF63 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 4E2Y72ZYRE;
 					};
 					487A7B121D5A8864000FFF63 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -191,6 +230,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		391B162781B05DC468D222DB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dollarbillconverter/Pods-dollarbillconverter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C2726EC9B6BB2B204235C78 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dollarbillconverterTests/Pods-dollarbillconverterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AC53075FA9076CCBFECA78C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8ACB83049D726780B78F775C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dollarbillconverter/Pods-dollarbillconverter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D73B1540E509C50658509CEA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dollarbillconverterTests/Pods-dollarbillconverterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D82EFAFDB59F414B4A1BA0A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		487A7AFB1D5A8863000FFF63 /* Sources */ = {
@@ -325,28 +457,37 @@
 		};
 		487A7B1D1D5A8864000FFF63 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0774599DA6F57EE2E10A319 /* Pods-dollarbillconverter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = dollarbillconverter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = huge.dollarbillconverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		487A7B1E1D5A8864000FFF63 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56737805C739D9821A0D1D3D /* Pods-dollarbillconverter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = dollarbillconverter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = huge.dollarbillconverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 		487A7B201D5A8864000FFF63 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF2C1A283B2FD3983201B542 /* Pods-dollarbillconverterTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = dollarbillconverterTests/Info.plist;
@@ -359,6 +500,7 @@
 		};
 		487A7B211D5A8864000FFF63 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D670F7F58720E84D7AD7B41C /* Pods-dollarbillconverterTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = dollarbillconverterTests/Info.plist;
@@ -388,6 +530,7 @@
 				487A7B1E1D5A8864000FFF63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		487A7B1F1D5A8864000FFF63 /* Build configuration list for PBXNativeTarget "dollarbillconverterTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +539,7 @@
 				487A7B211D5A8864000FFF63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

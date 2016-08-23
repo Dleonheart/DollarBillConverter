@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "487A7AFE1D5A8863000FFF63"
-               BuildableName = "dollarbillconverter.app"
-               BlueprintName = "dollarbillconverter"
-               ReferencedContainer = "container:dollarbillconverter.xcodeproj">
+               BlueprintIdentifier = "B8FB4A581A3620A183EDE9E45C90522B"
+               BuildableName = "Pods_dollarbillconverter.framework"
+               BlueprintName = "Pods-dollarbillconverter"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "487A7B121D5A8864000FFF63"
-               BuildableName = "dollarbillconverterTests.xctest"
-               BlueprintName = "dollarbillconverterTests"
-               ReferencedContainer = "container:dollarbillconverter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "487A7AFE1D5A8863000FFF63"
-            BuildableName = "dollarbillconverter.app"
-            BlueprintName = "dollarbillconverter"
-            ReferencedContainer = "container:dollarbillconverter.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -61,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "487A7AFE1D5A8863000FFF63"
-            BuildableName = "dollarbillconverter.app"
-            BlueprintName = "dollarbillconverter"
-            ReferencedContainer = "container:dollarbillconverter.xcodeproj">
+            BlueprintIdentifier = "B8FB4A581A3620A183EDE9E45C90522B"
+            BuildableName = "Pods_dollarbillconverter.framework"
+            BlueprintName = "Pods-dollarbillconverter"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,16 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "487A7AFE1D5A8863000FFF63"
-            BuildableName = "dollarbillconverter.app"
-            BlueprintName = "dollarbillconverter"
-            ReferencedContainer = "container:dollarbillconverter.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
