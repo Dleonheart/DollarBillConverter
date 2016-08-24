@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     var topDecoration : UIView!
     var currencyInputContainer: UIView!
     var pickerControlls: UIView!
+    var currencyInput : UITextField!
+    var currencyTypeLabel: UILabel!
     
 
     override func viewDidLoad() {
@@ -37,12 +39,31 @@ class ViewController: UIViewController {
         currencyInputContainer = UIView();
         currencyInputContainer.backgroundColor = UIColor(red: 252/255, green: 105/255, blue: 105/255, alpha: 100)
         pickerControlls = UIView();
-        pickerControlls.backgroundColor = UIColor(red: 59/255, green: 59/255, blue: 59/255, alpha: 100);
+        pickerControlls.backgroundColor = UIColor(red: 59/255, green: 59/255, blue: 59/255, alpha: 100)
+        
+        currencyInput = UITextField()
+        currencyInput.backgroundColor = UIColor.clearColor()
+        currencyInput.text = "50.00000";
+        currencyInput.font = .systemFontOfSize(45)
+        currencyInput.textColor = UIColor.whiteColor()
+        currencyInput.textAlignment = .Right
+        
+        currencyTypeLabel = UILabel();
+        currencyTypeLabel.backgroundColor = UIColor.clearColor()
+        currencyTypeLabel.text = "USD";
+        currencyTypeLabel.font = .systemFontOfSize(16)
+        currencyTypeLabel.textColor = UIColor.whiteColor()
+
+
         
         
-        view.addSubview(topDecoration);
-        view.addSubview(currencyInputContainer);
-        view.addSubview(pickerControlls);
+        view.addSubview(topDecoration)
+        view.addSubview(currencyInputContainer)
+        view.addSubview(pickerControlls)
+        
+        currencyInputContainer.addSubview(currencyTypeLabel)
+        currencyInputContainer.addSubview(currencyInput)
+        
     
         
         topDecoration.snp_makeConstraints {(make) in
@@ -64,6 +85,17 @@ class ViewController: UIViewController {
             make.bottom.equalTo(currencyInputContainer).offset(27)
             make.height.equalTo(55)
             make.width.equalTo(130)
+        }
+        
+        currencyInput.snp_makeConstraints { make in
+            make.height.equalTo(currencyInputContainer)
+            make.right.equalTo(currencyInputContainer).offset(-15)
+            make.centerY.equalTo(currencyInputContainer)
+        }
+        
+        currencyTypeLabel.snp_makeConstraints { make in
+            make.centerY.equalTo(currencyInput).offset(-10)
+            make.right.equalTo(currencyInput.snp_left).offset(-10)
         }
         
         currencyInputContainer.layer.shadowColor = UIColor.blackColor().CGColor
