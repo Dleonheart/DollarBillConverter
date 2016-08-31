@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4879EB0A1D762636007DE52C /* ForceGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4879EB091D762636007DE52C /* ForceGestureRecognizer.swift */; };
 		487A7B031D5A8863000FFF63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B021D5A8863000FFF63 /* AppDelegate.swift */; };
 		487A7B051D5A8863000FFF63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B041D5A8863000FFF63 /* ViewController.swift */; };
 		487A7B081D5A8864000FFF63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B061D5A8864000FFF63 /* Main.storyboard */; };
 		487A7B0A1D5A8864000FFF63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B091D5A8864000FFF63 /* Assets.xcassets */; };
 		487A7B0D1D5A8864000FFF63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B0B1D5A8864000FFF63 /* LaunchScreen.storyboard */; };
 		487A7B181D5A8864000FFF63 /* dollarbillconverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B171D5A8864000FFF63 /* dollarbillconverterTests.swift */; };
+		48D90A0F1D6FA5DF0078D313 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90A0E1D6FA5DF0078D313 /* NumberPicker.swift */; };
+		48D90A111D6FF8C10078D313 /* ForceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90A101D6FF8C10078D313 /* ForceButton.swift */; };
 		D791DC09BA93DB2A4E1E584F /* Pods_dollarbillconverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B26EE0487E2AC172A0F1254 /* Pods_dollarbillconverter.framework */; };
 		F46F4B27D0D9503D4EAC3DC5 /* Pods_dollarbillconverterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED8025E3EBBF8CA8FFBDDA5 /* Pods_dollarbillconverterTests.framework */; };
 /* End PBXBuildFile section */
@@ -29,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		1B26EE0487E2AC172A0F1254 /* Pods_dollarbillconverter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dollarbillconverter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4879EB091D762636007DE52C /* ForceGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForceGestureRecognizer.swift; path = gestures/ForceGestureRecognizer.swift; sourceTree = "<group>"; };
 		487A7AFF1D5A8863000FFF63 /* dollarbillconverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dollarbillconverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		487A7B021D5A8863000FFF63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		487A7B041D5A8863000FFF63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +43,8 @@
 		487A7B131D5A8864000FFF63 /* dollarbillconverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dollarbillconverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		487A7B171D5A8864000FFF63 /* dollarbillconverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dollarbillconverterTests.swift; sourceTree = "<group>"; };
 		487A7B191D5A8864000FFF63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48D90A0E1D6FA5DF0078D313 /* NumberPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberPicker.swift; path = views/NumberPicker.swift; sourceTree = "<group>"; };
+		48D90A101D6FF8C10078D313 /* ForceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForceButton.swift; path = views/ForceButton.swift; sourceTree = "<group>"; };
 		56737805C739D9821A0D1D3D /* Pods-dollarbillconverter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dollarbillconverter.release.xcconfig"; path = "Pods/Target Support Files/Pods-dollarbillconverter/Pods-dollarbillconverter.release.xcconfig"; sourceTree = "<group>"; };
 		B0774599DA6F57EE2E10A319 /* Pods-dollarbillconverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dollarbillconverter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dollarbillconverter/Pods-dollarbillconverter.debug.xcconfig"; sourceTree = "<group>"; };
 		CED8025E3EBBF8CA8FFBDDA5 /* Pods_dollarbillconverterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dollarbillconverterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +83,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4879EB061D762586007DE52C /* gestures */ = {
+			isa = PBXGroup;
+			children = (
+				4879EB091D762636007DE52C /* ForceGestureRecognizer.swift */,
+			);
+			name = gestures;
+			sourceTree = "<group>";
+		};
 		487A7AF61D5A8863000FFF63 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +114,8 @@
 		487A7B011D5A8863000FFF63 /* dollarbillconverter */ = {
 			isa = PBXGroup;
 			children = (
+				4879EB061D762586007DE52C /* gestures */,
+				48D90A0D1D6FA5A50078D313 /* views */,
 				487A7B021D5A8863000FFF63 /* AppDelegate.swift */,
 				487A7B041D5A8863000FFF63 /* ViewController.swift */,
 				487A7B061D5A8864000FFF63 /* Main.storyboard */,
@@ -117,6 +133,15 @@
 				487A7B191D5A8864000FFF63 /* Info.plist */,
 			);
 			path = dollarbillconverterTests;
+			sourceTree = "<group>";
+		};
+		48D90A0D1D6FA5A50078D313 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				48D90A0E1D6FA5DF0078D313 /* NumberPicker.swift */,
+				48D90A101D6FF8C10078D313 /* ForceButton.swift */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 		BAF9829551ACFAE66D8C18E7 /* Frameworks */ = {
@@ -330,7 +355,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				487A7B051D5A8863000FFF63 /* ViewController.swift in Sources */,
+				48D90A0F1D6FA5DF0078D313 /* NumberPicker.swift in Sources */,
+				4879EB0A1D762636007DE52C /* ForceGestureRecognizer.swift in Sources */,
 				487A7B031D5A8863000FFF63 /* AppDelegate.swift in Sources */,
+				48D90A111D6FF8C10078D313 /* ForceButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
