@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		485B0EDD1D778ED300A6EE49 /* DollarsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B0EDC1D778ED300A6EE49 /* DollarsConverter.swift */; };
 		4879EB0A1D762636007DE52C /* ForceGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4879EB091D762636007DE52C /* ForceGestureRecognizer.swift */; };
 		487A7B031D5A8863000FFF63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B021D5A8863000FFF63 /* AppDelegate.swift */; };
 		487A7B051D5A8863000FFF63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B041D5A8863000FFF63 /* ViewController.swift */; };
@@ -14,6 +15,7 @@
 		487A7B0A1D5A8864000FFF63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B091D5A8864000FFF63 /* Assets.xcassets */; };
 		487A7B0D1D5A8864000FFF63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B0B1D5A8864000FFF63 /* LaunchScreen.storyboard */; };
 		487A7B181D5A8864000FFF63 /* dollarbillconverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B171D5A8864000FFF63 /* dollarbillconverterTests.swift */; };
+		48964C501D78C0C8000FDB03 /* HttpReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48964C4F1D78C0C8000FDB03 /* HttpReq.swift */; };
 		48D90A0F1D6FA5DF0078D313 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90A0E1D6FA5DF0078D313 /* NumberPicker.swift */; };
 		48D90A111D6FF8C10078D313 /* ForceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90A101D6FF8C10078D313 /* ForceButton.swift */; };
 		D791DC09BA93DB2A4E1E584F /* Pods_dollarbillconverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B26EE0487E2AC172A0F1254 /* Pods_dollarbillconverter.framework */; };
@@ -32,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		1B26EE0487E2AC172A0F1254 /* Pods_dollarbillconverter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dollarbillconverter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		485B0EDC1D778ED300A6EE49 /* DollarsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DollarsConverter.swift; path = model/DollarsConverter.swift; sourceTree = "<group>"; };
 		4879EB091D762636007DE52C /* ForceGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForceGestureRecognizer.swift; path = gestures/ForceGestureRecognizer.swift; sourceTree = "<group>"; };
 		487A7AFF1D5A8863000FFF63 /* dollarbillconverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dollarbillconverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		487A7B021D5A8863000FFF63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		487A7B131D5A8864000FFF63 /* dollarbillconverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dollarbillconverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		487A7B171D5A8864000FFF63 /* dollarbillconverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dollarbillconverterTests.swift; sourceTree = "<group>"; };
 		487A7B191D5A8864000FFF63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48964C4F1D78C0C8000FDB03 /* HttpReq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpReq.swift; path = network/HttpReq.swift; sourceTree = "<group>"; };
 		48D90A0E1D6FA5DF0078D313 /* NumberPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberPicker.swift; path = views/NumberPicker.swift; sourceTree = "<group>"; };
 		48D90A101D6FF8C10078D313 /* ForceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForceButton.swift; path = views/ForceButton.swift; sourceTree = "<group>"; };
 		56737805C739D9821A0D1D3D /* Pods-dollarbillconverter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dollarbillconverter.release.xcconfig"; path = "Pods/Target Support Files/Pods-dollarbillconverter/Pods-dollarbillconverter.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +87,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		485B0EDA1D778EA600A6EE49 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				48964C4F1D78C0C8000FDB03 /* HttpReq.swift */,
+			);
+			name = network;
+			sourceTree = "<group>";
+		};
+		485B0EDB1D778EAF00A6EE49 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				485B0EDC1D778ED300A6EE49 /* DollarsConverter.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		4879EB061D762586007DE52C /* gestures */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +134,8 @@
 		487A7B011D5A8863000FFF63 /* dollarbillconverter */ = {
 			isa = PBXGroup;
 			children = (
+				485B0EDB1D778EAF00A6EE49 /* model */,
+				485B0EDA1D778EA600A6EE49 /* network */,
 				4879EB061D762586007DE52C /* gestures */,
 				48D90A0D1D6FA5A50078D313 /* views */,
 				487A7B021D5A8863000FFF63 /* AppDelegate.swift */,
@@ -354,7 +376,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				485B0EDD1D778ED300A6EE49 /* DollarsConverter.swift in Sources */,
 				487A7B051D5A8863000FFF63 /* ViewController.swift in Sources */,
+				48964C501D78C0C8000FDB03 /* HttpReq.swift in Sources */,
 				48D90A0F1D6FA5DF0078D313 /* NumberPicker.swift in Sources */,
 				4879EB0A1D762636007DE52C /* ForceGestureRecognizer.swift in Sources */,
 				487A7B031D5A8863000FFF63 /* AppDelegate.swift in Sources */,

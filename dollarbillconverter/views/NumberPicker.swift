@@ -23,8 +23,9 @@ class NumberPicker: UIView {
     private var maxForceValue = 6.66
     private var currentForceValue: CGFloat = 0.0
     private let forcePress = ForceGestureRecognizer()
+
     
-    var delegate : NumberPickerProtocol?
+    var delegate : NumberPickerDelegate?
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,7 +46,7 @@ class NumberPicker: UIView {
         forcePress.cancelsTouchesInView = false
         forcePress.addTarget(self, action: #selector(pickerPressed))
         
-        increment  = ForceButton()
+        increment = ForceButton()
         decrement = ForceButton()
         increment.setTitle("+", forState: .Normal)
         decrement.setTitle("-", forState: .Normal)
@@ -73,6 +74,10 @@ class NumberPicker: UIView {
             make.top.bottom.left.equalTo(self)
             make.width.equalTo(self).dividedBy(2.1)
         }
+    }
+    
+    private func resetInterval() {
+        counterInterval = maxCounterInterval
     }
     
     private func updateTimeIntervalWithForce(force: CGFloat) {
@@ -111,7 +116,8 @@ class NumberPicker: UIView {
     
     func incrementUp() {
         timer.invalidate()
-        counterInterval = 0.2
+        resetInterval()
+        delegate?.touchesDidEnd()
     }
     
     func decrementNumber() {
@@ -130,7 +136,8 @@ class NumberPicker: UIView {
     
     func decrementUp() {
         timer.invalidate()
-        counterInterval = 0.2
+        resetInterval()
+        delegate?.touchesDidEnd()
     }
     
     func pickerPressed(sender : ForceGestureRecognizer) {
@@ -146,6 +153,7 @@ enum AmountDirection {
     case Decrementing
 }
 
-protocol NumberPickerProtocol {
+protocol NumberPickerDelegate {
     func numberDidChange(number: Int)
+    func touchesDidEnd()
 }

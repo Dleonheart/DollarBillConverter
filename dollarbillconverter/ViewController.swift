@@ -13,11 +13,20 @@ import SnapKit
 
 class ViewController: UIViewController {
     
-    var topDecoration : UIView!
-    var currencyInputContainer: UIView!
-    var pickerControls: NumberPicker!
-    var currencyInput : UILabel!
-    var currencyTypeLabel: UILabel!
+    private var topDecoration : UIView!
+    private var currencyInputContainer: UIView!
+    private var pickerControls: NumberPicker!
+    private var currencyInput : UILabel!
+    private var currencyTypeLabel: UILabel!
+    private var currencyTable = UITableView()
+    private var explanatoryLabel = UILabel()
+    
+    private var dollarsAmount: Int = 0
+    
+    //model 
+    
+    private var currencyConverter = DollarsConverter()
+    
     
     // animation properties
     
@@ -25,13 +34,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setupViews() {
@@ -55,18 +61,19 @@ class ViewController: UIViewController {
         currencyTypeLabel.text = "USD";
         currencyTypeLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
         currencyTypeLabel.textColor = UIColor.whiteColor()
-
-
         
+        explanatoryLabel.backgroundColor = UIColor.clearColor()
+        explanatoryLabel.text = "as of november 15 your 1200 dollars are worth:"
+        explanatoryLabel.numberOfLines = 0
+        explanatoryLabel.textAlignment = .Center
         
         view.addSubview(topDecoration)
         view.addSubview(currencyInputContainer)
         view.addSubview(pickerControls)
+        view.addSubview(explanatoryLabel)
         
         currencyInputContainer.addSubview(currencyTypeLabel)
         currencyInputContainer.addSubview(currencyInput)
-        
-    
         
         topDecoration.snp_makeConstraints {(make) in
             
@@ -100,27 +107,45 @@ class ViewController: UIViewController {
             make.right.equalTo(currencyInput.snp_left).offset(-25)
         }
         
+        explanatoryLabel.snp_makeConstraints { make in
+            make.top.equalTo(currencyInputContainer.snp_bottom).offset(60)
+            make.left.equalTo(view).offset(45)
+            make.right.equalTo(view).offset(-45)
+        }
+        
         currencyInputContainer.layer.shadowColor = UIColor.blackColor().CGColor
         currencyInputContainer.layer.shadowOpacity = 0.37
         currencyInputContainer.layer.shadowOffset = CGSize(width: 0 , height: 6)
         currencyInputContainer.layer.shadowRadius = 8
         
     }
+    
+    func invokeCurrencyConversion() {
+        currencyConverter.convertDollars(dollarsAmount) { (rates: Dictionary<String, Double>) in
+            // TODO: implement display logic
+        }
+    }
 
 
 }
 
-extension ViewController : NumberPickerProtocol {
+extension ViewController : NumberPickerDelegate {
 
     func numberDidChange(number: Int) {
-        self.currencyInput.transform = CGAffineTransformMakeScale(0.2, 0.5)
+        dollarsAmount = number
+        currencyInput.transform = CGAffineTransformMakeScale(0.2, 0.5)
 
         
         UIView.animateWithDuration(0.2, delay: 0.0, options: [], animations: {
             self.currencyInput.transform = CGAffineTransformIdentity
             }, completion: nil)
         
-        currencyInput.text = "\(number)"
+        currencyInput.text = "\(dollarsAmount)"
+        
+    }
+    
+    func touchesDidEnd(){
+       invokeCurrencyConversion()
     }
 }
 
