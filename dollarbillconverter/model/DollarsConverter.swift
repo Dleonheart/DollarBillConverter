@@ -12,10 +12,12 @@ import Foundation
 class DollarsConverter {
     
     /// stores the las requested exchange rates
-    private var currentRates : Dictionary<String,ExchangeRate>?
+    private var currentRates : [String:ExchangeRate]?
     
     /// if the current exchange rates should be refreshed
     private var refreshRates = false
+    
+    private var ratesDate: NSDate?
     
     // MARK: public interface
     
@@ -25,7 +27,7 @@ class DollarsConverter {
      - Parameter amount: the amount of us dollars.
      - Parameter callback: to be executed upon conversion completion
      */
-    func convertDollars(amount: Int, callback: (Dictionary<String, Double>) -> Void)  {
+    func convertDollars(amount: Int, callback: (ExchangeRates) -> Void)  {
         
         if(currentRates != nil && !refreshRates) {
             callback(ratesToDollars(amount))
@@ -33,14 +35,21 @@ class DollarsConverter {
             return
         }
         
-        obtainCurrentRates({ (data: Dictionary<String, AnyObject>, error: String?) -> Void  in
+        obtainCurrentRates({ (data: HttpReq.JSONObject, error: String?) -> Void  in
             
             guard let rates = data["rates"] as? NSDictionary else {
                 return
             }
             self.currentRates = self.mapRates(rates)
             
-            callback(self.ratesToDollars(amount))
+            guard let dateString = data["date"] as? String else {
+                return
+            }
+            
+            let dateFormater = NSDateFormatter()
+            dateFormater.dateFormat = "yyyy-MM-dd"
+            self.ratesDate = dateFormater.dateFromString(dateString)
+                         callback(self.ratesToDollars(amount))
         })
     }
     
@@ -51,7 +60,7 @@ class DollarsConverter {
      
      - Parameter callback: to be executed upon api response
      */
-    private func obtainCurrentRates(callback : (Dictionary<String, AnyObject>, String?) -> Void) {
+    private func obtainCurrentRates(callback : (HttpReq.JSONObject, String?) -> Void) {
         
         HttpReq.getJSON(EndPoints.CurrentRates.rawValue, callback: callback)
     }
@@ -83,15 +92,18 @@ class DollarsConverter {
      
      - Return: A dictionary identifiyng the currency code and the amount of dollars in that currency
      */
-    private func ratesToDollars(dollarsAmount: Int) -> Dictionary<String, Double> {
+    private func ratesToDollars(dollarsAmount: Int) -> ExchangeRates {
+        let date  = ratesDate ?? NSDate()
+       
+        var exchange : ExchangeRates  = ExchangeRates(rates: [], date: date)
         
-        var dollarValues: Dictionary<String, Double>  = [:]
-        for(currencyId, exchangeRate) in currentRates! {
+        for(_, exchangeRate) in currentRates! {
             
-            dollarValues[currencyId] = convertToDollars(exchangeRate.rate, dollarsAmount: dollarsAmount)
+            exchange.rates.append(exchangeRate)
+            
         }
-        
-        return dollarValues
+
+        return exchange
     }
     
     /**
@@ -118,8 +130,14 @@ private enum EndPoints: String {
     case CurrentRates = "https://api.fixer.io/latest?base=USD"
 }
 
+
+struct ExchangeRates {
+    var rates : [ExchangeRate]
+    var date : NSDate
+}
+
 /// represents the reate of exchange of a currency to us dollars
-private struct ExchangeRate {
+struct ExchangeRate {
     /// currency code
     var id: String
     /// currency rate of exchange

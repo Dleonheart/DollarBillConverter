@@ -121,8 +121,9 @@ class ViewController: UIViewController {
     }
     
     func invokeCurrencyConversion() {
-        currencyConverter.convertDollars(dollarsAmount) { (rates: Dictionary<String, Double>) in
+        currencyConverter.convertDollars(dollarsAmount) { (rates: ExchangeRates) in
             // TODO: implement display logic
+            print(rates)
         }
     }
 

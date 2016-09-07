@@ -25,7 +25,9 @@ class HttpReq {
                 if error != nil {
                     callback("", (error!.localizedDescription) as String)
                 } else {
-                    callback(NSString(data: data!, encoding: NSUTF8StringEncoding) as! String,nil)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        callback(NSString(data: data!, encoding: NSUTF8StringEncoding) as! String,nil)
+                    }
                 }
         })
         
@@ -64,7 +66,9 @@ class HttpReq {
      - Parameter url: the endpoint url
      - Parameter callback: to be executed upon request and json parsing completion
      */
-    static func getJSON(url: String, callback: (Dictionary<String, AnyObject>, String?) -> Void) {
+    
+    typealias JSONObject = [String: AnyObject]
+    static func getJSON(url: String, callback: (JSONObject, String?) -> Void) {
         
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
