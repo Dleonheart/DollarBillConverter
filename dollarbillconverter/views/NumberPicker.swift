@@ -121,6 +121,9 @@ class NumberPicker: UIView {
     }
     
     func decrementNumber() {
+        if(pickingNumber <= 0) {
+            return
+        }
         pickingNumber -= 1
         if let delegate = delegate {
             delegate.numberDidChange(pickingNumber)

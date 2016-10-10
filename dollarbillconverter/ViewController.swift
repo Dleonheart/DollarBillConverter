@@ -28,6 +28,16 @@ class ViewController: UIViewController {
     private var currencyConverter = DollarsConverter()
     
     
+    private var tableView = UITableView()
+    
+    private var conversionResults = ConversionResults(conversion : [], date: NSDate()) {
+    
+        didSet {
+            explanatoryLabel.text = "Your \(dollarsAmount) us dollars are worth:"
+        }
+    }
+    
+    
     // animation properties
     
 
@@ -52,25 +62,33 @@ class ViewController: UIViewController {
         currencyInput = UILabel()
         currencyInput.backgroundColor = UIColor.clearColor()
         currencyInput.text = "0";
-        currencyInput.font = UIFont(name:"HelveticaNeue-Bold", size: 62.0)
+        currencyInput.font = UIFont(name:"Aileron-Black", size: 62.0)
         currencyInput.textColor = UIColor.whiteColor()
         currencyInput.textAlignment = .Right
         
         currencyTypeLabel = UILabel();
         currencyTypeLabel.backgroundColor = UIColor.clearColor()
         currencyTypeLabel.text = "USD";
-        currencyTypeLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
+        currencyTypeLabel.font = UIFont(name:"Aileron-Light", size: 16.0)
         currencyTypeLabel.textColor = UIColor.whiteColor()
         
         explanatoryLabel.backgroundColor = UIColor.clearColor()
-        explanatoryLabel.text = "as of november 15 your 1200 dollars are worth:"
+        explanatoryLabel.text = "Press +/- buttons to set the amount, press harder to increase counting velocity (on 3d touch enabled devices)"
+        explanatoryLabel.font = UIFont(name:"Aileron-Light", size: 16.0)
         explanatoryLabel.numberOfLines = 0
         explanatoryLabel.textAlignment = .Center
+        explanatoryLabel.textColor = UIColor(red: 142/255, green: 138/255, blue: 138/255, alpha: 1.0)
+        
+        tableView.registerClass(CurrencyTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 97
         
         view.addSubview(topDecoration)
         view.addSubview(currencyInputContainer)
         view.addSubview(pickerControls)
         view.addSubview(explanatoryLabel)
+        view.addSubview(tableView)
         
         currencyInputContainer.addSubview(currencyTypeLabel)
         currencyInputContainer.addSubview(currencyInput)
@@ -113,17 +131,33 @@ class ViewController: UIViewController {
             make.right.equalTo(view).offset(-45)
         }
         
+        tableView.snp_makeConstraints { make in
+            make.top.equalTo(explanatoryLabel.snp_bottom).offset(25)
+            make.left.equalTo(view).offset(51)
+            make.right.equalTo(view).offset(-51)
+            make.bottom.equalTo(view)
+        }
+        
+    
+        
         currencyInputContainer.layer.shadowColor = UIColor.blackColor().CGColor
         currencyInputContainer.layer.shadowOpacity = 0.37
         currencyInputContainer.layer.shadowOffset = CGSize(width: 0 , height: 6)
         currencyInputContainer.layer.shadowRadius = 8
         
+        currencyInput.layer.shadowColor = UIColor.blackColor().CGColor
+        currencyInput.layer.shadowOpacity = 0.45
+        currencyInput.layer.shadowOffset = CGSize(width: 0 , height: 3)
+        currencyInput.layer.shadowRadius = 3
+        currencyInput.layer.shouldRasterize = true
+        
     }
     
     func invokeCurrencyConversion() {
-        currencyConverter.convertDollars(dollarsAmount) { (rates: ExchangeRates) in
+        currencyConverter.convertDollars(dollarsAmount) { (results: ConversionResults) in
             // TODO: implement display logic
-            print(rates)
+            self.conversionResults = results
+            self.tableView.reloadData()
         }
     }
 
@@ -137,7 +171,7 @@ extension ViewController : NumberPickerDelegate {
         currencyInput.transform = CGAffineTransformMakeScale(0.2, 0.5)
 
         
-        UIView.animateWithDuration(0.2, delay: 0.0, options: [], animations: {
+        UIView.animateWithDuration(0.15, delay: 0.0, options: [], animations: {
             self.currencyInput.transform = CGAffineTransformIdentity
             }, completion: nil)
         
@@ -148,5 +182,30 @@ extension ViewController : NumberPickerDelegate {
     func touchesDidEnd(){
        invokeCurrencyConversion()
     }
+}
+
+extension ViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return conversionResults.conversion.count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as? CurrencyTableViewCell
+        let conversion = conversionResults.conversion[indexPath.row]
+        
+        cell?.currencyCode = conversion.currencyId
+        cell?.currencyValue = Float(conversion.dollarsWorth)
+        
+        return cell!
+    }
+    
+    
+
 }
 

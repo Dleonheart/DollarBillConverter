@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4802D2561DA5AC25002296A6 /* Aileron-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4802D2521DA5ABF9002296A6 /* Aileron-Black.otf */; };
+		4802D2571DA5AC28002296A6 /* Aileron-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4802D2531DA5ABF9002296A6 /* Aileron-Bold.otf */; };
+		4802D2581DA5AC2B002296A6 /* Aileron-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4802D2541DA5ABF9002296A6 /* Aileron-Light.otf */; };
+		4802D2591DA5AC2E002296A6 /* Aileron-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4802D2551DA5ABF9002296A6 /* Aileron-Regular.otf */; };
 		485B0EDD1D778ED300A6EE49 /* DollarsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B0EDC1D778ED300A6EE49 /* DollarsConverter.swift */; };
+		4878C6B41DAB29CB005EC2C9 /* SACountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878C6B31DAB29CB005EC2C9 /* SACountingLabel.swift */; };
 		4879EB0A1D762636007DE52C /* ForceGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4879EB091D762636007DE52C /* ForceGestureRecognizer.swift */; };
 		487A7B031D5A8863000FFF63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B021D5A8863000FFF63 /* AppDelegate.swift */; };
 		487A7B051D5A8863000FFF63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B041D5A8863000FFF63 /* ViewController.swift */; };
@@ -15,6 +20,8 @@
 		487A7B0A1D5A8864000FFF63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B091D5A8864000FFF63 /* Assets.xcassets */; };
 		487A7B0D1D5A8864000FFF63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B0B1D5A8864000FFF63 /* LaunchScreen.storyboard */; };
 		487A7B181D5A8864000FFF63 /* dollarbillconverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B171D5A8864000FFF63 /* dollarbillconverterTests.swift */; };
+		487B91371DA2E4ED00C2AB59 /* CurrenciesFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B91361DA2E4ED00C2AB59 /* CurrenciesFilter.swift */; };
+		487B91391DA2E8D900C2AB59 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B91381DA2E8D900C2AB59 /* CurrencyTableViewCell.swift */; };
 		48964C501D78C0C8000FDB03 /* HttpReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48964C4F1D78C0C8000FDB03 /* HttpReq.swift */; };
 		48D90A0F1D6FA5DF0078D313 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90A0E1D6FA5DF0078D313 /* NumberPicker.swift */; };
 		48D90A111D6FF8C10078D313 /* ForceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90A101D6FF8C10078D313 /* ForceButton.swift */; };
@@ -34,7 +41,12 @@
 
 /* Begin PBXFileReference section */
 		1B26EE0487E2AC172A0F1254 /* Pods_dollarbillconverter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dollarbillconverter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4802D2521DA5ABF9002296A6 /* Aileron-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Black.otf"; sourceTree = "<group>"; };
+		4802D2531DA5ABF9002296A6 /* Aileron-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Bold.otf"; sourceTree = "<group>"; };
+		4802D2541DA5ABF9002296A6 /* Aileron-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Light.otf"; sourceTree = "<group>"; };
+		4802D2551DA5ABF9002296A6 /* Aileron-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Regular.otf"; sourceTree = "<group>"; };
 		485B0EDC1D778ED300A6EE49 /* DollarsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DollarsConverter.swift; path = model/DollarsConverter.swift; sourceTree = "<group>"; };
+		4878C6B31DAB29CB005EC2C9 /* SACountingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SACountingLabel.swift; path = views/SACountingLabel.swift; sourceTree = "<group>"; };
 		4879EB091D762636007DE52C /* ForceGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForceGestureRecognizer.swift; path = gestures/ForceGestureRecognizer.swift; sourceTree = "<group>"; };
 		487A7AFF1D5A8863000FFF63 /* dollarbillconverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dollarbillconverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		487A7B021D5A8863000FFF63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +58,8 @@
 		487A7B131D5A8864000FFF63 /* dollarbillconverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dollarbillconverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		487A7B171D5A8864000FFF63 /* dollarbillconverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dollarbillconverterTests.swift; sourceTree = "<group>"; };
 		487A7B191D5A8864000FFF63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		487B91361DA2E4ED00C2AB59 /* CurrenciesFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrenciesFilter.swift; path = model/CurrenciesFilter.swift; sourceTree = "<group>"; };
+		487B91381DA2E8D900C2AB59 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyTableViewCell.swift; path = views/CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		48964C4F1D78C0C8000FDB03 /* HttpReq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpReq.swift; path = network/HttpReq.swift; sourceTree = "<group>"; };
 		48D90A0E1D6FA5DF0078D313 /* NumberPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberPicker.swift; path = views/NumberPicker.swift; sourceTree = "<group>"; };
 		48D90A101D6FF8C10078D313 /* ForceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForceButton.swift; path = views/ForceButton.swift; sourceTree = "<group>"; };
@@ -87,6 +101,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4802D2511DA5ABA0002296A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4802D2521DA5ABF9002296A6 /* Aileron-Black.otf */,
+				4802D2531DA5ABF9002296A6 /* Aileron-Bold.otf */,
+				4802D2541DA5ABF9002296A6 /* Aileron-Light.otf */,
+				4802D2551DA5ABF9002296A6 /* Aileron-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		485B0EDA1D778EA600A6EE49 /* network */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				485B0EDC1D778ED300A6EE49 /* DollarsConverter.swift */,
+				487B91361DA2E4ED00C2AB59 /* CurrenciesFilter.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -114,6 +140,7 @@
 		487A7AF61D5A8863000FFF63 = {
 			isa = PBXGroup;
 			children = (
+				4802D2511DA5ABA0002296A6 /* Resources */,
 				487A7B011D5A8863000FFF63 /* dollarbillconverter */,
 				487A7B161D5A8864000FFF63 /* dollarbillconverterTests */,
 				487A7B001D5A8863000FFF63 /* Products */,
@@ -162,6 +189,8 @@
 			children = (
 				48D90A0E1D6FA5DF0078D313 /* NumberPicker.swift */,
 				48D90A101D6FF8C10078D313 /* ForceButton.swift */,
+				487B91381DA2E8D900C2AB59 /* CurrencyTableViewCell.swift */,
+				4878C6B31DAB29CB005EC2C9 /* SACountingLabel.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -263,7 +292,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4802D2571DA5AC28002296A6 /* Aileron-Bold.otf in Resources */,
+				4802D2591DA5AC2E002296A6 /* Aileron-Regular.otf in Resources */,
+				4802D2561DA5AC25002296A6 /* Aileron-Black.otf in Resources */,
 				487A7B0D1D5A8864000FFF63 /* LaunchScreen.storyboard in Resources */,
+				4802D2581DA5AC2B002296A6 /* Aileron-Light.otf in Resources */,
 				487A7B0A1D5A8864000FFF63 /* Assets.xcassets in Resources */,
 				487A7B081D5A8864000FFF63 /* Main.storyboard in Resources */,
 			);
@@ -377,11 +410,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				485B0EDD1D778ED300A6EE49 /* DollarsConverter.swift in Sources */,
+				4878C6B41DAB29CB005EC2C9 /* SACountingLabel.swift in Sources */,
 				487A7B051D5A8863000FFF63 /* ViewController.swift in Sources */,
+				487B91371DA2E4ED00C2AB59 /* CurrenciesFilter.swift in Sources */,
 				48964C501D78C0C8000FDB03 /* HttpReq.swift in Sources */,
 				48D90A0F1D6FA5DF0078D313 /* NumberPicker.swift in Sources */,
 				4879EB0A1D762636007DE52C /* ForceGestureRecognizer.swift in Sources */,
 				487A7B031D5A8863000FFF63 /* AppDelegate.swift in Sources */,
+				487B91391DA2E8D900C2AB59 /* CurrencyTableViewCell.swift in Sources */,
 				48D90A111D6FF8C10078D313 /* ForceButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

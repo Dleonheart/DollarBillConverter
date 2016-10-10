@@ -12,12 +12,14 @@ import Foundation
 class DollarsConverter {
     
     /// stores the las requested exchange rates
-    private var currentRates : [String:ExchangeRate]?
+    private var currentRates : [ExchangeRate]?
     
     /// if the current exchange rates should be refreshed
     private var refreshRates = false
     
     private var ratesDate: NSDate?
+    
+    private var filter = CurrenciesFilter()
     
     // MARK: public interface
     
@@ -27,7 +29,7 @@ class DollarsConverter {
      - Parameter amount: the amount of us dollars.
      - Parameter callback: to be executed upon conversion completion
      */
-    func convertDollars(amount: Int, callback: (ExchangeRates) -> Void)  {
+    func convertDollars(amount: Int, callback: (ConversionResults) -> Void)  {
         
         if(currentRates != nil && !refreshRates) {
             callback(ratesToDollars(amount))
@@ -72,17 +74,17 @@ class DollarsConverter {
      
      - Returns: A dictionary which key is the currency code and value the exchange rate info
      */
-    private func mapRates(apiRates:NSDictionary) -> Dictionary<String, ExchangeRate> {
+    private func mapRates(apiRates:NSDictionary) -> [ExchangeRate] {
         
-        var exchangeRates: Dictionary<String, ExchangeRate> = [:];
+        var rates: [ExchangeRate] = [];
         
         for(identifier, rate) in apiRates {
             let id = identifier as! String
             let rate = rate as! Double
-            exchangeRates[identifier as! String] = ExchangeRate(id: id, rate: rate)
+            rates.append(ExchangeRate(id: id, rate: rate))
         }
         
-        return exchangeRates
+        return rates
     }
     
     /**
@@ -92,18 +94,23 @@ class DollarsConverter {
      
      - Return: A dictionary identifiyng the currency code and the amount of dollars in that currency
      */
-    private func ratesToDollars(dollarsAmount: Int) -> ExchangeRates {
+    private func ratesToDollars(dollarsAmount: Int) -> ConversionResults {
         let date  = ratesDate ?? NSDate()
        
-        var exchange : ExchangeRates  = ExchangeRates(rates: [], date: date)
+        var results = ConversionResults(conversion: [], date: date)
         
-        for(_, exchangeRate) in currentRates! {
+        let ratesToCheck = filter.filterCurrencies(currentRates!)
+        
+        for exchangeRate in ratesToCheck {
             
-            exchange.rates.append(exchangeRate)
+            results.conversion.append(ConvertedCurrency(
+                                            currencyId: exchangeRate.id,
+                                            dollarsWorth: convertToDollars(exchangeRate.rate, dollarsAmount: dollarsAmount)
+                                        ))
             
         }
 
-        return exchange
+        return results
     }
     
     /**
@@ -119,6 +126,7 @@ class DollarsConverter {
         return Double(dollarsAmount) * rate
     }
     
+    
 }
 
 /**
@@ -131,9 +139,15 @@ private enum EndPoints: String {
 }
 
 
-struct ExchangeRates {
-    var rates : [ExchangeRate]
+struct ConversionResults {
+    var conversion : [ConvertedCurrency]
     var date : NSDate
+}
+
+
+struct ConvertedCurrency {
+    var currencyId : String
+    var dollarsWorth : Double
 }
 
 /// represents the reate of exchange of a currency to us dollars
