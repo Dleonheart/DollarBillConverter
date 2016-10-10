@@ -261,9 +261,11 @@
 					487A7AFE1D5A8863000FFF63 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 4E2Y72ZYRE;
+						LastSwiftMigration = 0800;
 					};
 					487A7B121D5A8864000FFF63 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 487A7AFE1D5A8863000FFF63;
 					};
 				};
@@ -555,6 +557,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = huge.dollarbillconverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -570,6 +573,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = huge.dollarbillconverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -582,6 +586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = huge.dollarbillconverterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dollarbillconverter.app/dollarbillconverter";
 			};
 			name = Debug;
@@ -595,6 +600,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = huge.dollarbillconverterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dollarbillconverter.app/dollarbillconverter";
 			};
 			name = Release;

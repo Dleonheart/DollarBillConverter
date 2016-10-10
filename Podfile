@@ -7,7 +7,7 @@ target 'dollarbillconverter' do
 
   # Pods for dollarbillconverter
   source 'https://github.com/CocoaPods/Specs.git'
-  pod 'SnapKit', '~> 0.15.0'
+  pod 'SnapKit', '~> 0.22.0'
   target 'dollarbillconverterTests' do
     inherit! :search_paths
     # Pods for testing
