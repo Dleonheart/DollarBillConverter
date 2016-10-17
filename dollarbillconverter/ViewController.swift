@@ -83,6 +83,8 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 97
+        tableView.showsVerticalScrollIndicator = false
+        tableView.allowsSelection = false
         
         view.addSubview(topDecoration)
         view.addSubview(currencyInputContainer)
