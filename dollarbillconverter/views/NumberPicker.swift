@@ -50,10 +50,10 @@ class NumberPicker: UIView {
         decrement = ForceButton()
         increment.setTitle("+", forState: .Normal)
         decrement.setTitle("-", forState: .Normal)
-        increment.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        decrement.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        increment.backgroundColor = UIColor(red: 59/255, green: 59/255, blue: 59/255, alpha: 100)
-        decrement.backgroundColor = UIColor(red: 59/255, green: 59/255, blue: 59/255, alpha: 100)
+        increment.setTitleColor(AppColors.UIColorFromTag(.White), forState: .Normal)
+        decrement.setTitleColor(AppColors.UIColorFromTag(.White), forState: .Normal)
+        increment.backgroundColor = AppColors.UIColorFromTag(.BlackPanel)
+        decrement.backgroundColor = AppColors.UIColorFromTag(.BlackPanel)
         
         increment.addTarget(self, action: #selector(incrementDown), forControlEvents: .TouchDown)
         increment.addTarget(self, action: #selector(incrementUp), forControlEvents: .TouchUpInside)
@@ -99,6 +99,10 @@ class NumberPicker: UIView {
             timer = NSTimer.scheduledTimerWithTimeInterval(counterInterval, target: self, selector: #selector(decrementNumber), userInfo: nil, repeats: true)
 
         }
+    }
+    
+    func setNumber(number: Int) {
+        pickingNumber = number
     }
     
     func incrementNumber() {

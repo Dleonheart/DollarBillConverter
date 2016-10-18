@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2F2C181DB599FC00FD1CC2 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2F2C171DB599FC00FD1CC2 /* Appearance.swift */; };
 		4802D2561DA5AC25002296A6 /* Aileron-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4802D2521DA5ABF9002296A6 /* Aileron-Black.otf */; };
 		4802D2571DA5AC28002296A6 /* Aileron-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4802D2531DA5ABF9002296A6 /* Aileron-Bold.otf */; };
 		4802D2581DA5AC2B002296A6 /* Aileron-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4802D2541DA5ABF9002296A6 /* Aileron-Light.otf */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		1B26EE0487E2AC172A0F1254 /* Pods_dollarbillconverter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dollarbillconverter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C2F2C171DB599FC00FD1CC2 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Appearance.swift; path = views/Appearance.swift; sourceTree = "<group>"; };
 		4802D2521DA5ABF9002296A6 /* Aileron-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Black.otf"; sourceTree = "<group>"; };
 		4802D2531DA5ABF9002296A6 /* Aileron-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Bold.otf"; sourceTree = "<group>"; };
 		4802D2541DA5ABF9002296A6 /* Aileron-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Light.otf"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				48D90A101D6FF8C10078D313 /* ForceButton.swift */,
 				487B91381DA2E8D900C2AB59 /* CurrencyTableViewCell.swift */,
 				4878C6B31DAB29CB005EC2C9 /* SACountingLabel.swift */,
+				1C2F2C171DB599FC00FD1CC2 /* Appearance.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				48964C501D78C0C8000FDB03 /* HttpReq.swift in Sources */,
 				48D90A0F1D6FA5DF0078D313 /* NumberPicker.swift in Sources */,
 				4879EB0A1D762636007DE52C /* ForceGestureRecognizer.swift in Sources */,
+				1C2F2C181DB599FC00FD1CC2 /* Appearance.swift in Sources */,
 				487A7B031D5A8863000FFF63 /* AppDelegate.swift in Sources */,
 				487B91391DA2E8D900C2AB59 /* CurrencyTableViewCell.swift in Sources */,
 				48D90A111D6FF8C10078D313 /* ForceButton.swift in Sources */,

@@ -29,15 +29,20 @@ class DollarsConverter {
      - Parameter amount: the amount of us dollars.
      - Parameter callback: to be executed upon conversion completion
      */
-    func convertDollars(amount: Int, callback: (ConversionResults) -> Void)  {
+    func convertDollars(amount: Int, success: (ConversionResults) -> Void, notifyError: (String) -> Void)  {
         
         if(currentRates != nil && !refreshRates) {
-            callback(ratesToDollars(amount))
+            success(ratesToDollars(amount))
             
             return
         }
         
         obtainCurrentRates({ (data: HttpReq.JSONObject, error: String?) -> Void  in
+            
+            if let error = error {
+                notifyError(error);
+                return
+            }
             
             guard let rates = data["rates"] as? NSDictionary else {
                 return
@@ -51,7 +56,7 @@ class DollarsConverter {
             let dateFormater = NSDateFormatter()
             dateFormater.dateFormat = "yyyy-MM-dd"
             self.ratesDate = dateFormater.dateFromString(dateString)
-                         callback(self.ratesToDollars(amount))
+                         success(self.ratesToDollars(amount))
         })
     }
     
