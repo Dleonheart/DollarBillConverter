@@ -17,7 +17,6 @@ class CurrencyTableViewCell: UITableViewCell {
     var currencyFlag = UIImageView()
     
     // data
-    
     var currencyCode: String? {
     
         didSet {
@@ -43,19 +42,14 @@ class CurrencyTableViewCell: UITableViewCell {
         }
     }
     
-    
-    
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -74,10 +68,12 @@ class CurrencyTableViewCell: UITableViewCell {
         contentView.addSubview(currencyFlag)
         contentView.addSubview(balanceLabel)
         
-        dollarsLabel.font = UIFont(name: "Aileron-Black", size: 48)
+        //appearance
         
-        currencyLabel.font = UIFont(name: "Aileron-Light", size: 20)
+        dollarsLabel.font = AppFonts.fontOfType(.Black, withSize: 48)
+        currencyLabel.font = AppFonts.fontOfType(.Light, withSize:20)
         
+        //autolayout
         
         dollarsLabel.snp_makeConstraints() { make in
             make.top.left.equalTo(contentView)

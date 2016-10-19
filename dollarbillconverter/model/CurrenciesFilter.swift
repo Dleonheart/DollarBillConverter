@@ -12,7 +12,13 @@ class CurrenciesFilter {
 
     private var currenciesToShow = ["GBP", "BRL", "JPY", "EUR"]
     
+    /**
+     Filters an array of ExchangeRate with whitelist currency ids
+     
+     - Parameter rates: The ExchangeRate array
+     - Returns filtered array
     
+     */
     func filterCurrencies(rates: [ExchangeRate] ) -> [ExchangeRate]  {
         
        return rates.filter { rate in

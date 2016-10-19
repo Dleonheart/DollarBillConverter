@@ -21,22 +21,19 @@ class ViewController: UIViewController {
     private var currencyTypeLabel = UILabel()
     private var currencyTable = UITableView()
     private var explanatoryLabel = UILabel()
+    private var resultsTable = UITableView()
     
     private var dollarsAmount: Int = 0 {
         didSet {
-            
             currencyInput.text = "\(dollarsAmount)"
-
         }
     }
     
-    //model 
+    // MARK: Conversion engine
+
     
     private var currencyConverter = DollarsConverter()
     
-    
-    
-    private var tableView = UITableView()
     
     private var conversionResults = ConversionResults(conversion : [], date: NSDate()) {
     
@@ -45,8 +42,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    // animation properties
+    // Status bar coloring
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
@@ -62,8 +58,10 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func setupViews() {
-    
+    private func setupViews() {
+        
+        // MARK: View styling
+        
         topDecoration.backgroundColor = AppColors.UIColorFromTag(.BlackPanel)
         currencyInputContainer.backgroundColor = AppColors.UIColorFromTag(.Salmon)
         pickerControls.delegate = self
@@ -89,22 +87,24 @@ class ViewController: UIViewController {
         explanatoryLabel.textAlignment = .Center
         explanatoryLabel.textColor = AppColors.UIColorFromTag(.LightGray)
         
-        tableView.registerClass(CurrencyTableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = 97
-        tableView.showsVerticalScrollIndicator = false
-        tableView.allowsSelection = false
+        resultsTable.registerClass(CurrencyTableViewCell.self, forCellReuseIdentifier: "cell")
+        resultsTable.delegate = self
+        resultsTable.dataSource = self
+        resultsTable.rowHeight = 97
+        resultsTable.showsVerticalScrollIndicator = false
+        resultsTable.allowsSelection = false
         
         view.addSubview(topDecoration)
         view.addSubview(currencyInputContainer)
         view.addSubview(pickerControls)
         view.addSubview(explanatoryLabel)
-        view.addSubview(tableView)
+        view.addSubview(resultsTable)
         
         currencyInputContainer.addSubview(currencyTypeLabel)
         currencyInputContainer.addSubview(currencyInput)
         currencyInputContainer.addSubview(hiddenInput)
+        
+        // MARK: autolayout setup
         
         topDecoration.snp_makeConstraints {(make) in
             
@@ -148,14 +148,14 @@ class ViewController: UIViewController {
             make.right.equalTo(view).offset(-45)
         }
         
-        tableView.snp_makeConstraints { make in
+        resultsTable.snp_makeConstraints { make in
             make.top.equalTo(explanatoryLabel.snp_bottom).offset(25)
             make.left.equalTo(view).offset(51)
             make.right.equalTo(view).offset(-51)
             make.bottom.equalTo(view)
         }
         
-    
+        // shadows
         
         currencyInputContainer.layer.shadowColor = AppColors.UIColorFromTag(.Black).CGColor
         currencyInputContainer.layer.shadowOpacity = 0.37
@@ -184,18 +184,23 @@ class ViewController: UIViewController {
         currencyConverter.convertDollars(dollarsAmount, success: { (results: ConversionResults) in
             // TODO: implement display logic
             self.conversionResults = results
-            self.tableView.reloadData()
+            self.resultsTable.reloadData()
         },
         notifyError: self.errorMsg)
     }
+    
+}
+
+
+extension ViewController {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
     }
-
-
 }
+
+// delegates implementation
 
 extension ViewController : NumberPickerDelegate {
 
@@ -258,7 +263,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as? CurrencyTableViewCell
+        let cell = resultsTable.dequeueReusableCellWithIdentifier("cell") as? CurrencyTableViewCell
         let conversion = conversionResults.conversion[indexPath.row]
         
         cell?.currencyCode = conversion.currencyId

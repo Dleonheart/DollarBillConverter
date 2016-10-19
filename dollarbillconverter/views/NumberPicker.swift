@@ -15,7 +15,7 @@ class NumberPicker: UIView {
     private var increment = ForceButton()
     private var decrement = ForceButton()
     private var pickingNumber = 0
-    private var direction: AmountDirection = .Incrementing
+    private var direction: Direction = .Incrementing
     private var timer = NSTimer()
     private var counterInterval = 0.22
     private var minCounterInterval = 0.1
@@ -42,12 +42,14 @@ class NumberPicker: UIView {
     
     private func setupViews() {
         
+        /// force gesture recognizer
+        
         self.addGestureRecognizer(forcePress)
         forcePress.cancelsTouchesInView = false
         forcePress.addTarget(self, action: #selector(pickerPressed))
         
-        increment = ForceButton()
-        decrement = ForceButton()
+        // appearance
+        
         increment.setTitle("+", forState: .Normal)
         decrement.setTitle("-", forState: .Normal)
         increment.setTitleColor(AppColors.UIColorFromTag(.White), forState: .Normal)
@@ -55,15 +57,19 @@ class NumberPicker: UIView {
         increment.backgroundColor = AppColors.UIColorFromTag(.BlackPanel)
         decrement.backgroundColor = AppColors.UIColorFromTag(.BlackPanel)
         
-        increment.addTarget(self, action: #selector(incrementDown), forControlEvents: .TouchDown)
-        increment.addTarget(self, action: #selector(incrementUp), forControlEvents: .TouchUpInside)
-        increment.addTarget(self, action: #selector(incrementUp), forControlEvents: .TouchDragOutside)
-        decrement.addTarget(self, action: #selector(decrementDown), forControlEvents: .TouchDown)
-        decrement.addTarget(self, action: #selector(decrementUp), forControlEvents: .TouchUpInside)
-        decrement.addTarget(self, action: #selector(decrementUp), forControlEvents: .TouchDragOutside)
+        // event binding
+        
+        increment.addTarget(self, action: #selector(incrementPressed), forControlEvents: .TouchDown)
+        increment.addTarget(self, action: #selector(incrementReleased), forControlEvents: .TouchUpInside)
+        increment.addTarget(self, action: #selector(incrementReleased), forControlEvents: .TouchDragOutside)
+        decrement.addTarget(self, action: #selector(decrementPressed), forControlEvents: .TouchDown)
+        decrement.addTarget(self, action: #selector(decrementReleased), forControlEvents: .TouchUpInside)
+        decrement.addTarget(self, action: #selector(decrementReleased), forControlEvents: .TouchDragOutside)
         
         addSubview(increment)
         addSubview(decrement)
+        
+        // autolayout
         
         increment.snp_makeConstraints { make in
             make.top.bottom.right.equalTo(self)
@@ -101,10 +107,22 @@ class NumberPicker: UIView {
         }
     }
     
+    
+    /**
+     sets internal counting vañue
+     - Parameter number: the new internal number value
+     
+     */
     func setNumber(number: Int) {
         pickingNumber = number
     }
     
+    /**
+     Signal to increment Number
+     
+     - Notifies delegate of number increment
+     
+    */
     func incrementNumber() {
         pickingNumber += 1
         if let delegate = delegate {
@@ -112,18 +130,12 @@ class NumberPicker: UIView {
         }
     }
     
-    func incrementDown() {
-        direction = .Incrementing
-        updateTimer()
-        timer.fire()
-    }
-    
-    func incrementUp() {
-        timer.invalidate()
-        resetInterval()
-        delegate?.touchesDidEnd()
-    }
-    
+    /**
+     Signal to decrement Number
+     
+     - Notifies delegate of number increment
+     
+     */
     func decrementNumber() {
         if(pickingNumber <= 0) {
             return
@@ -132,21 +144,40 @@ class NumberPicker: UIView {
         if let delegate = delegate {
             delegate.numberDidChange(pickingNumber)
         }
-
+        
     }
     
-    func decrementDown() {
-        direction = .Decrementing
+    func incrementPressed() {
+        direction = .Incrementing
         updateTimer()
         timer.fire()
     }
     
-    func decrementUp() {
+    func incrementReleased() {
         timer.invalidate()
         resetInterval()
         delegate?.touchesDidEnd()
     }
     
+    
+    func decrementPressed() {
+        direction = .Decrementing
+        updateTimer()
+        timer.fire()
+    }
+    
+    func decrementReleased() {
+        timer.invalidate()
+        resetInterval()
+        delegate?.touchesDidEnd()
+    }
+    
+    /**
+     Handles force gesture event
+     
+     - Decreases/Increases timer interval based on the force received by the gesture
+     
+     */
     func pickerPressed(sender : ForceGestureRecognizer) {
         if(abs(currentForceValue - sender.forceValue) >= 0.1) {
             updateTimeIntervalWithForce(sender.forceValue)
@@ -155,7 +186,7 @@ class NumberPicker: UIView {
 
 }
 
-enum AmountDirection {
+private enum Direction {
     case Incrementing
     case Decrementing
 }
