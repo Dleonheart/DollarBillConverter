@@ -68,12 +68,18 @@ class DollarsConverter {
                 return
             }
             
-            guard let rates = data["rates"] else {
+            guard let rawRates = data["rates"] else {
                 
                 completion(nil, "Could not get rates")
                 return
             }
-             completion(self.mapRates(rates as! [String : AnyObject]), nil)
+            
+            guard let rates = rawRates as? HttpReq.JSONObject else {
+                completion(nil, "Could not get rates")
+                return
+            }
+            
+            completion(self.mapRates(rates), nil)
             
         }
     }
@@ -85,7 +91,7 @@ class DollarsConverter {
      
      - Returns: an array of exchange rates
      */
-    private func mapRates(apiRates:[String: AnyObject]) -> [ExchangeRate] {
+    private func mapRates(apiRates: HttpReq.JSONObject) -> [ExchangeRate] {
         
         var rates: [ExchangeRate] = [];
         

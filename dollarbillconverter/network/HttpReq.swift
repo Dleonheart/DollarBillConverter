@@ -42,7 +42,7 @@ class HttpReq {
      
      - Return: A dictionary with the json structure
      */
-    static func JSONParseDict(jsonString:String) -> Dictionary<String, AnyObject> {
+    static func JSONParseDict(jsonString:String) -> JSONObject {
         
         if let data: NSData = jsonString.dataUsingEncoding(
             NSUTF8StringEncoding){
@@ -50,14 +50,14 @@ class HttpReq {
             do{
                 if let jsonObj = try NSJSONSerialization.JSONObjectWithData(
                     data,
-                    options: NSJSONReadingOptions(rawValue: 0)) as? Dictionary<String, AnyObject>{
+                options: NSJSONReadingOptions(rawValue: 0)) as? JSONObject {
                     return jsonObj
                 }
             }catch{
                 print("Error")
             }
         }
-        return [String: AnyObject]()
+        return JSONObject()
     }
     
     /**
@@ -75,7 +75,7 @@ class HttpReq {
         sendRequest(request) {
             (data: String, error: String?) -> Void in
             if error != nil {
-                callback(Dictionary<String, AnyObject>(), error)
+                callback(JSONObject(), error)
             } else {
                 let jsonObj = JSONParseDict(data)
                 callback(jsonObj, nil)
