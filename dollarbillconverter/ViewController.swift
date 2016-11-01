@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     private var currencyConverter = DollarsConverter()
     
     
-    private var conversionResults = ConversionResults(conversion : [], date: NSDate()) {
+    private var conversionResults : [ConvertedCurrency] = [] {
     
         didSet {
             explanatoryLabel.text = "Your \(dollarsAmount) us dollars are worth:"
@@ -181,12 +181,22 @@ class ViewController: UIViewController {
     
     func invokeCurrencyConversion() {
         
-        currencyConverter.convertDollars(dollarsAmount, success: { (results: ConversionResults) in
-            // TODO: implement display logic
+        currencyConverter.convertDollars(dollarsAmount) { (results, error ) in
+            
+            
+            if let error = error {
+                self.errorMsg(error);
+            }
+            
+            guard let results = results else {
+                self.errorMsg("No conversion data available")
+                return
+            }
+            
             self.conversionResults = results
             self.resultsTable.reloadData()
-        },
-        notifyError: self.errorMsg)
+        }
+            
     }
     
 }
@@ -255,7 +265,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return conversionResults.conversion.count
+        return conversionResults.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -264,7 +274,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = resultsTable.dequeueReusableCellWithIdentifier("cell") as? CurrencyTableViewCell
-        let conversion = conversionResults.conversion[indexPath.row]
+        let conversion = conversionResults[indexPath.row]
         
         cell?.currencyCode = conversion.currencyId
         cell?.currencyValue = Float(conversion.dollarsWorth)

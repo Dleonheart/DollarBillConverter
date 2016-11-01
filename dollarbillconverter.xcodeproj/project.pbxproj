@@ -21,7 +21,6 @@
 		487A7B0A1D5A8864000FFF63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B091D5A8864000FFF63 /* Assets.xcassets */; };
 		487A7B0D1D5A8864000FFF63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 487A7B0B1D5A8864000FFF63 /* LaunchScreen.storyboard */; };
 		487A7B181D5A8864000FFF63 /* dollarbillconverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A7B171D5A8864000FFF63 /* dollarbillconverterTests.swift */; };
-		487B91371DA2E4ED00C2AB59 /* CurrenciesFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B91361DA2E4ED00C2AB59 /* CurrenciesFilter.swift */; };
 		487B91391DA2E8D900C2AB59 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B91381DA2E8D900C2AB59 /* CurrencyTableViewCell.swift */; };
 		48964C501D78C0C8000FDB03 /* HttpReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48964C4F1D78C0C8000FDB03 /* HttpReq.swift */; };
 		48D90A0F1D6FA5DF0078D313 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90A0E1D6FA5DF0078D313 /* NumberPicker.swift */; };
@@ -60,7 +59,6 @@
 		487A7B131D5A8864000FFF63 /* dollarbillconverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dollarbillconverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		487A7B171D5A8864000FFF63 /* dollarbillconverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dollarbillconverterTests.swift; sourceTree = "<group>"; };
 		487A7B191D5A8864000FFF63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		487B91361DA2E4ED00C2AB59 /* CurrenciesFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrenciesFilter.swift; path = model/CurrenciesFilter.swift; sourceTree = "<group>"; };
 		487B91381DA2E8D900C2AB59 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyTableViewCell.swift; path = views/CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		48964C4F1D78C0C8000FDB03 /* HttpReq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpReq.swift; path = network/HttpReq.swift; sourceTree = "<group>"; };
 		48D90A0E1D6FA5DF0078D313 /* NumberPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberPicker.swift; path = views/NumberPicker.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				485B0EDC1D778ED300A6EE49 /* DollarsConverter.swift */,
-				487B91361DA2E4ED00C2AB59 /* CurrenciesFilter.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -258,7 +255,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Diego Castaño";
 				TargetAttributes = {
 					487A7AFE1D5A8863000FFF63 = {
@@ -417,7 +414,6 @@
 				485B0EDD1D778ED300A6EE49 /* DollarsConverter.swift in Sources */,
 				4878C6B41DAB29CB005EC2C9 /* SACountingLabel.swift in Sources */,
 				487A7B051D5A8863000FFF63 /* ViewController.swift in Sources */,
-				487B91371DA2E4ED00C2AB59 /* CurrenciesFilter.swift in Sources */,
 				48964C501D78C0C8000FDB03 /* HttpReq.swift in Sources */,
 				48D90A0F1D6FA5DF0078D313 /* NumberPicker.swift in Sources */,
 				4879EB0A1D762636007DE52C /* ForceGestureRecognizer.swift in Sources */,
@@ -480,8 +476,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -525,8 +523,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -545,6 +545,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -553,6 +554,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B0774599DA6F57EE2E10A319 /* Pods-dollarbillconverter.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -569,6 +571,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 56737805C739D9821A0D1D3D /* Pods-dollarbillconverter.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
