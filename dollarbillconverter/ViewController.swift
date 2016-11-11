@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     private var explanatoryLabel = UILabel()
     private var resultsTable = UITableView()
     
-    private var dollarsAmount: Int = 0 {
+    private var dollarsAmount = 0 {
         didSet {
             currencyInput.text = "\(dollarsAmount)"
         }
@@ -221,8 +221,6 @@ extension ViewController : NumberPickerDelegate {
         UIView.animateWithDuration(0.15, delay: 0.0, options: [], animations: {
             self.currencyInput.transform = CGAffineTransformIdentity
             }, completion: nil)
-        
-        
     }
     
     func touchesDidEnd(){
@@ -234,6 +232,7 @@ extension ViewController : UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         hiddenInput.hidden = true
+        hiddenInput.text = currencyInput.text
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
@@ -247,14 +246,22 @@ extension ViewController : UITextFieldDelegate {
         let aSet = NSCharacterSet(charactersInString:"0123456789").invertedSet
         let compSepByCharInSet = string.componentsSeparatedByCharactersInSet(aSet)
         let numberFiltered = compSepByCharInSet.joinWithSeparator("")
-        let textFieldText: NSString = hiddenInput.text ?? ""
+        let textFieldText = hiddenInput.text ?? "" as NSString
         let txtAfterUpdate = textFieldText.stringByReplacingCharactersInRange(range, withString: string)
 
         if(string == numberFiltered && txtAfterUpdate.characters.count <= 4) {
             
-            dollarsAmount = Int(txtAfterUpdate)!
-            pickerControls.setNumber(dollarsAmount)
+            guard let amount = Int(txtAfterUpdate) else {
+                // if the new text cannot be casted as an int user has deleted last digit, so we set counters to 0
+                dollarsAmount = 0
+                pickerControls.setNumber(0)
+                textField.text = "0";
+                return false
+            }
+            dollarsAmount = amount
+            pickerControls.setNumber(amount)
             return true
+            
         } else {
             return false
         }
@@ -277,7 +284,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         let conversion = conversionResults[indexPath.row]
         
         cell?.currencyCode = conversion.currencyId
-        cell?.currencyValue = Float(conversion.dollarsWorth)
+        cell?.currencyValue = conversion.dollarsWorth
         
         return cell!
     }

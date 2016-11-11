@@ -11,7 +11,7 @@ import UIKit
 
 public class SACountingLabel: UILabel {
     
-    let kCounterRate: Float = 3.0
+    let kCounterRate = 3.0
     
     public enum AnimationType {
         case Linear
@@ -26,8 +26,8 @@ public class SACountingLabel: UILabel {
         case Custom
     }
     
-    var start: Float = 0.0
-    var end: Float = 0.0
+    var start = 0.0
+    var end = 0.0
     var timer: NSTimer?
     var progress: NSTimeInterval!
     var lastUpdate: NSTimeInterval!
@@ -36,16 +36,16 @@ public class SACountingLabel: UILabel {
     var animationType: AnimationType!
     public var format: String?
     
-    var currentValue: Float {
+    var currentValue: Double {
         if (progress >= duration) {
             return end
         }
-        let percent = Float(progress / duration)
+        let percent = (progress / duration)
         let update = updateCounter(percent)
         return start + (update * (end - start));
     }
     
-    public func countFrom(fromValue: Float, to toValue: Float, withDuration duration: NSTimeInterval, andAnimationType aType: AnimationType, andCountingType cType: CountingType) {
+    public func countFrom(fromValue: Double, to toValue: Double, withDuration duration: NSTimeInterval, andAnimationType aType: AnimationType, andCountingType cType: CountingType) {
         
         // Set values
         self.start = fromValue
@@ -69,14 +69,14 @@ public class SACountingLabel: UILabel {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(SACountingLabel.updateValue), userInfo: nil, repeats: true)
     }
     
-    public func animateToValue(value: Float) {
+    public func animateToValue(value: Double) {
         let from = end
         let to = value
         
         countFrom(from, to: to, withDuration: 1, andAnimationType: .EaseOut, andCountingType: .Float)
     }
     
-    func updateText(value: Float) {
+    func updateText(value: Double) {
         switch countingType! {
         case .Int:
             self.text = "\(Int(value))"
@@ -113,14 +113,14 @@ public class SACountingLabel: UILabel {
         timer = nil
     }
     
-    func updateCounter(t: Float) -> Float {
+    func updateCounter(t: Double) -> Double {
         switch animationType! {
         case .Linear:
             return t
         case .EaseIn:
-            return powf(t, kCounterRate)
+            return pow(t, kCounterRate)
         case .EaseOut:
-            return 1.0 - powf((1.0 - t), kCounterRate)
+            return 1.0 - pow((1.0 - t), kCounterRate)
         case .EaseInOut:
             var t = t
             var sign = 1.0;
@@ -130,9 +130,9 @@ public class SACountingLabel: UILabel {
             }
             t *= 2;
             if (t < 1) {
-                return 0.5 * powf(t, kCounterRate)
+                return 0.5 * pow(t, kCounterRate)
             } else {
-                return Float(sign * 0.5) * (powf(t-2, kCounterRate) + Float(sign * 2))
+                return (sign * 0.5) * (pow(t-2, kCounterRate) + (sign * 2))
             }
             
         }

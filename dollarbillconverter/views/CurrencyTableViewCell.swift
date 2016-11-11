@@ -27,7 +27,7 @@ class CurrencyTableViewCell: UITableViewCell {
         }
     }
     
-    var currencyValue : Float = 0.0 {
+    var currencyValue = 0.0 {
         didSet {
             dollarsLabel.alpha = 0.0;
             var t = CGAffineTransformIdentity

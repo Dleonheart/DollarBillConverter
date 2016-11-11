@@ -30,7 +30,7 @@ class DollarsConverter {
             completion(ratesToDollars(amount, rates: currentRates), nil)
             return
         } else {
-            obtainCurrentRates({ (rates, error) in
+            obtainCurrentRates({ rates, error in
                 
                 if let error = error {
                     completion(nil, error);
@@ -61,7 +61,7 @@ class DollarsConverter {
     private func obtainCurrentRates(completion : ([ExchangeRate]?, String?) -> Void) {
         
         let endpoint = EndPoints.currentRatesEndpointForCurrencies(currenciesToShow)
-        HttpReq.getJSON(endpoint) {(data, error) in
+        HttpReq.getJSON(endpoint) { data, error in
             
             if let error = error {
                 completion(nil, error);

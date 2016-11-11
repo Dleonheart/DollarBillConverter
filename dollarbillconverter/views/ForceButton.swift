@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum ForceButtonType: Int {
-    case Shadow = 0
-    case Scale = 1
-}
 
 class ForceButton: UIButton {
     
@@ -20,13 +16,7 @@ class ForceButton: UIButton {
     var shadowColor: UIColor = UIColor.blackColor()
     var shadowOpacity: Float = 0.7
     var maxShadowOffset: CGSize = CGSize(width: 0.0, height: 6.6)
-    var maxShadowRadius: CGFloat = 10.0
-    var forceButtonType: ForceButtonType = .Shadow
-    
-    @IBInspectable var inspectableType: Int {
-        get { return self.forceButtonType.rawValue }
-        set { self.forceButtonType =  ForceButtonType(rawValue: newValue) ?? .Shadow }
-    }
+    var maxShadowRadius: CGFloat = 13.0
     
     
     override func didMoveToSuperview() {
@@ -46,12 +36,7 @@ class ForceButton: UIButton {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesEnded(touches, withEvent: event)
-        switch forceButtonType {
-        case .Shadow:
-            shadowWithAmount(0.0)
-        case .Scale:
-            scaleWithAmount(0.0)
-        }
+        shadowWithAmount(0.0)
     }
     
     func handleForceWithTouches(touches: Set<UITouch>) {
@@ -61,12 +46,9 @@ class ForceButton: UIButton {
         guard let touch = touches.first else {
             return
         }
-        switch forceButtonType {
-        case .Shadow:
-            shadowWithAmount(touch.force)
-        case .Scale:
-            scaleWithAmount(touch.force)
-        }
+        
+        shadowWithAmount(touch.force)
+        
     }
     
     func shadowWithAmount(amount: CGFloat) {
@@ -77,9 +59,6 @@ class ForceButton: UIButton {
         layer.shadowOffset = CGSize(width: maxShadowOffset.width - amount * widthFactor,
                                     height: maxShadowOffset.height - amount * heightFactor)
         layer.shadowRadius = maxShadowRadius - amount
-    }
-    
-    func scaleWithAmount(amount: CGFloat) {
-        layer.transform = CATransform3DMakeScale(1 + amount/100, 1 + amount/100, 1)
+        layer.transform = CATransform3DMakeScale(1 + amount/80, 1 + amount/80, 1)
     }
 }
